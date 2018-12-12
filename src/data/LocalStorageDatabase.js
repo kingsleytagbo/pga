@@ -14,22 +14,18 @@ export default class database {
             return database.sort(JSON.parse(data));
         }
         else {
+            databse.removeAll(key);
             return [];
         }
     };
 
     static sort = (data) => {
         let scoreSorted = data.sort(function (first, second) {
-            let compare = 0;
-             if(second.score === first.score){
-                compare = (second.lastName > first.lastName) ? 0 : 1;
-             }
-             else if(second.score > first.score){
-                compare = -1;
-             }
-             return compare;
+            if (first.score === second.score) {
+                return (second.lastName > first.lastName ? 1 : -1);
+            }
+            return (second.score - first.score);
         });
-
         return scoreSorted;
     }
 
