@@ -14,7 +14,7 @@ export default class database {
             return database.sort(JSON.parse(data));
         }
         else {
-            databse.removeAll(key);
+            database.removeAll(key);
             return [];
         }
     };
